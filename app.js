@@ -61,6 +61,18 @@ app.post('/blog_post', function(req, res) {
 
 
 });
+
+app.get('/blog_post', function(req, res) {
+    console.log('here');
+    Blog_Post.find({}, function(err, data) {
+        if(err) {
+            console.log('ERR: ', err);
+        }
+
+        res.send(data);
+        console.log(data);
+    });
+});
 //
 //app.delete('/person/:id', function(req, res) {
 //    Person.findByIdAndRemove({"_id" : req.params.id}, function(err, data) {

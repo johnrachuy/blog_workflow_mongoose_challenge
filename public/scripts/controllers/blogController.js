@@ -1,5 +1,7 @@
 myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
 
+    getPost();
+
     $scope.savePost = function() {
         var post = {
             title: $scope.title,
@@ -13,6 +15,13 @@ myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
             console.log(response.data);
         });
     };
+
+    function getPost() {
+        $http.get('/blog_post').then(function(response) {
+            $scope.blogHistory = response.data;
+
+        });
+    }
 
     console.log('Blog Controller');
 

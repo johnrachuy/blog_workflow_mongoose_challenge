@@ -73,16 +73,35 @@ app.get('/blog_post', function(req, res) {
         console.log(data);
     });
 });
-//
-//app.delete('/person/:id', function(req, res) {
-//    Person.findByIdAndRemove({"_id" : req.params.id}, function(err, data) {
-//        if(err) {
-//            console.log('ERR: ', err);
-//        }
-//
-//        res.send(data);
-//    });
-//});
+
+app.put('/blog_post', function(req, res){
+    var newComment = req.body.comment;
+    Blog_Post.findByIdAndUpdate(
+        {_id: req.body._id},
+        {
+            $set: {comment: newComment}
+        },
+        function(err, data) {
+            if(err) {
+                console.log('ERR: ', err);
+            }
+
+            res.send(data);
+        }
+    );
+
+});
+
+app.delete('/blog_post/:id', function(req, res) {
+    Blog_Post.findByIdAndRemove({"_id" : req.params.id}, function(err, data) {
+        if(err) {
+            console.log('ERR: ', err);
+        }
+
+        res.send(data);
+    });
+});
+
 
 // Serve back static files
 app.use(express.static('public'));

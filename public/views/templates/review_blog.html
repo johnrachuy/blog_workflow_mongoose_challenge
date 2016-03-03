@@ -1,21 +1,25 @@
-<section id="content">
+<div></div>
+<section id="content" ng-repeat="blog in blogHistory">
     <div>
-        <h2>{{blogHistory.title}}</h2>
-        <h3>{{blogHistory.author}}</h3>
-        <h3>{{blogHistory.date | date}}</h3>
-        <p>{{blogHistory.entry}}</p>
+        <li>{{blog.title}}<button ng-click="showPost($index)">Click to Comment</button><button ng-click="delete(blog._id)">Delete</button>
+            </form></li>
+        <div ng-show="blog.showThis" ng-init="blog.showThis = false">
+            <h3>{{blog.author}}</h3>
+            <h3>{{blog.date | date}}</h3>
+            <p>{{blog.entry}}</p>
 
-        <form>
-            <label for="comments">Comments: </label>
-            <input type="text" ng-model="comments" id="comments" />
-        </form>
+            <form>
+                <label for="comment">Comments: </label>
+                <input type="text" ng-model="blog.comment" id="comment" /><button ng-click="submitReview($index)">Submit</button>
+        </div>
+
     </div>
 </section>
 
-<aside  id="sidebar">
-    <div ng-repeat="blog in blogHistory">
-        <ul>
-            <li>{{blog.title}}<button ng-click="">Click</button></li>
-        </ul>
-    </div>
-</aside>
+<!--<aside  id="sidebar">-->
+    <!--<div >-->
+        <!--<ul>-->
+            <!--<li>{{blog.title}}<button ng-click="">Click</button></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</aside>-->

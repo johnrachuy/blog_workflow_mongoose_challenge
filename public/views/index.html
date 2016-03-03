@@ -11,13 +11,14 @@
 </head>
 
 <body ng-app="myApp">
+<div id="container">
 
 <header ng-include="'/templates/header.html'"></header>
-<div ng-include="'/templates/nav.html'"></div>
+<nav ng-include="'/templates/nav.html'"></nav>
 
 <main ng-view></main>
 
 <!--<footer ng-include="'/templates/footer.html'"></footer>-->
-
+</div>
 </body>
 </html>

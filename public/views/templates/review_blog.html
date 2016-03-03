@@ -1,18 +1,21 @@
-<h1>Review</h1>
+<section id="content">
+    <div>
+        <h2>{{blogHistory.title}}</h2>
+        <h3>{{blogHistory.author}}</h3>
+        <h3>{{blogHistory.date | date}}</h3>
+        <p>{{blogHistory.entry}}</p>
 
-<div ng-repeat="blog in blogHistory">
-    <ul>
-        <li>{{blog.title}}<button ng-click="">Click</button></li>
-    </ul>
-</div>
+        <form>
+            <label for="comments">Comments: </label>
+            <input type="text" ng-model="comments" id="comments" />
+        </form>
+    </div>
+</section>
 
-<!--<div>-->
-    <!--<h2>{{blogHistory.title}}</h2>-->
-    <!--<h3>{{blogHistory.author}}</h3>-->
-    <!--<h3>{{blogHistory.date | date}}</h3>-->
-    <!--<p>{{blogHistory.entry}}</p>-->
-    <!--<form>-->
-        <!--<label for="comments">Comments: </label>-->
-        <!--<input type="text" ng-model="comments" id="comments" />-->
-    <!--</form>-->
-<!--</div>-->
+<aside  id="sidebar">
+    <div ng-repeat="blog in blogHistory">
+        <ul>
+            <li>{{blog.title}}<button ng-click="">Click</button></li>
+        </ul>
+    </div>
+</aside>

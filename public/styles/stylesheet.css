@@ -1,23 +1,48 @@
-.nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+#container{
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-.nav li {
-    float: left;
+header {
+    width: 94%;
+    height: 80px;
+    padding: 3%;
+    background-color: #FF5722;
 }
 
-.nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+header h1 {
+    font-size: 50px;
+    color: #fff;
+}
+
+nav {
+    width: 97%;
+    background-color: #E64A19;
+    padding: 0 1.5% 0 1.5%;
+}
+nav ul li {
+    display: inline-block;
+    padding: 15px 1.5% 15px 1.5% ;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+nav ul li a:hover {
+    color: #000000;
     text-decoration: none;
 }
 
-.nav li a:hover {
-    background-color: #111;
+#content {
+    float: right;
+    padding: 3%;
+    width: 64%;
+}
+
+aside {
+    float: left;
+    padding: 3%;
+    width: 24%;
+    background-color: #eee;
 }

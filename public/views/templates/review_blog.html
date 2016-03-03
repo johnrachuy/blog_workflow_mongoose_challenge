@@ -1,12 +1,26 @@
 <div></div>
 <section id="content" ng-repeat="blog in blogHistory">
     <div>
-        <li>{{blog.title}}<button ng-click="showPost($index)">Click to Comment</button><button ng-click="delete(blog._id)">Delete</button>
+        <li>{{blog.title}}<button ng-click="showPost($index)">Click to Edit/Comment</button><button ng-click="delete(blog._id)">Delete</button>
             </form></li>
         <div ng-show="blog.showThis" ng-init="blog.showThis = false">
-            <h3>{{blog.author}}</h3>
-            <h3>{{blog.date | date}}</h3>
-            <p>{{blog.entry}}</p>
+            <form>
+                <label for="title">Title: </label>
+                <input type="text" ng-model="blog.title" id="title" value="{{blog.title}}"/>
+                <br>
+                <label for="author">Author: </label>
+                <input type="text" ng-model="blog.author" id="author" value="{{blog.author}}" />
+                <br>
+                <label for="date">Date: </label>
+                <input type="text" ng-model="blog.date" id="date" value="{{blog.date | date}}" />
+                <br>
+                <label for="entry">Entry: </label>
+                <input type="text" ng-model="blog.entry" id="entry" value="{{blog.entry}}" />
+                <br>
+            </form>
+            <!--<h3>{{blog.author}}</h3>-->
+            <!--<h3>{{blog.date | date}}</h3>-->
+            <!--<p>{{blog.entry}}</p>-->
 
             <form>
                 <label for="comment">Comments: </label>

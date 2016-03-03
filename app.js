@@ -75,11 +75,27 @@ app.get('/blog_post', function(req, res) {
 });
 
 app.put('/blog_post', function(req, res){
-    var newComment = req.body.comment;
+    //console.log(req.body);
+    var editPost = {
+        "title": req.body.title,
+        "author": req.body.author,
+        "date": req.body.date,
+        "entry": req.body.entry,
+        "comment": req.body.comment
+    };
+
     Blog_Post.findByIdAndUpdate(
+
         {_id: req.body._id},
+
         {
-            $set: {comment: newComment}
+            $set: {
+                title: editPost.title,
+                author: editPost.author,
+                date: editPost.date,
+                entry: editPost.entry,
+                comment: editPost.comment
+            }
         },
         function(err, data) {
             if(err) {

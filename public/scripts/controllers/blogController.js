@@ -2,8 +2,6 @@ myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
 
     getPost();
 
-    //$scope.showThis = false;
-
     $scope.savePost = function() {
         var post = {
             title: $scope.title,
@@ -14,19 +12,20 @@ myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
 
         $http.post('/blog_post', post).then(function(response) {
             $scope.post = response.data;
-            console.log(response.data);
+            $scope.title = '';
+            $scope.author = '';
+            $scope.date = '';
+            $scope.entry = '';
         });
     };
 
     function getPost() {
         $http.get('/blog_post').then(function(response) {
             $scope.blogHistory = response.data;
-
         });
     }
 
     $scope.showPost = function(index) {
-
         $scope.blogHistory[index].showThis = true;
     };
 
@@ -36,7 +35,6 @@ myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
 
         $http.put('/blog_post', comment).then(function(response) {
             $scope.comment = response.data;
-            console.log(response.data);
         });
     };
 
@@ -49,5 +47,4 @@ myApp.controller('BlogController', ['$scope', '$http', function($scope, $http) {
     };
 
     console.log('Blog Controller');
-
 }]);

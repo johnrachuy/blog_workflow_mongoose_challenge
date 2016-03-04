@@ -3,8 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-//var pg = require('pg');
-//var connectionString = require('./modules/connection');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,17 +24,6 @@ mongoose.model(
 
 var Blog_Post = mongoose.model('Blog_Post');
 
-//app.get('/person', function(req, res) {
-//    console.log('here');
-//    Person.find({}, function(err, data) {
-//        if(err) {
-//            console.log('ERR: ', err);
-//        }
-//
-//        res.send(data);
-//    });
-//});
-//
 app.post('/blog_post', function(req, res) {
     var newPost = new Blog_Post({
         "title": req.body.title,
@@ -58,8 +45,6 @@ app.post('/blog_post', function(req, res) {
             res.send(data);
         });
     });
-
-
 });
 
 app.get('/blog_post', function(req, res) {
@@ -105,7 +90,6 @@ app.put('/blog_post', function(req, res){
             res.send(data);
         }
     );
-
 });
 
 app.delete('/blog_post/:id', function(req, res) {
@@ -117,7 +101,6 @@ app.delete('/blog_post/:id', function(req, res) {
         res.send(data);
     });
 });
-
 
 // Serve back static files
 app.use(express.static('public'));

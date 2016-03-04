@@ -35,14 +35,14 @@ nav ul li a:hover {
 }
 
 #content {
-    float: right;
+    /*float: right;*/
     padding: 3%;
-    width: 64%;
+    width: 97%;
 }
 
-aside {
-    float: left;
-    padding: 3%;
-    width: 24%;
-    background-color: #eee;
-}
+/*aside {*/
+    /*float: left;*/
+    /*padding: 3%;*/
+    /*width: 24%;*/
+    /*background-color: #eee;*/
+/*}*/
